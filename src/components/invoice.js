@@ -3,12 +3,16 @@ import {
   NavLink,
   Outlet,
   useLocation,
+  useNavigate,
   useSearchParams,
 } from "react-router-dom";
 import { invoices } from "./data";
+import AuthConsumer from "../hooks/auth";
 
 function Invoice() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [, dispatch] = AuthConsumer();
+  let navigate = useNavigate();
 
   const searchParamsChangeHandler = (e) => {
     let filter = e.target.value;
@@ -52,6 +56,15 @@ function Invoice() {
             </ResultNavLink>
           ))}
       </div>
+      <button
+        className="text-white mt-5 py-1 px-2 bg-violet-600 rounded-md"
+        onClick={() => {
+          dispatch({ type: "logout" });
+          navigate("/login", { replace: true });
+        }}
+      >
+        Logout
+      </button>
     </main>
   );
 }
