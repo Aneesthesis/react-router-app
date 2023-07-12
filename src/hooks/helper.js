@@ -14,7 +14,7 @@ export function ActiveLink(props) {
   );
 }
 
-export function useRequireAuth({ children }) {
+export function RequireAuth({ children }) {
   const [auth] = AuthConsumer();
   const location = useLocation();
   return auth.auth === true ? (

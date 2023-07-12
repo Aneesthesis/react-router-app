@@ -6,8 +6,8 @@ import AuthConsumer from "../hooks/auth";
 function Home() {
   return (
     <main>
-      <h1 className="text-center my-3 bg-yellow-400 text-gray-700 mx-auto w-fit p-2 rounded-md">
-        Welcome to Anees' Enterprises
+      <h1 className="text-center text-lg my-3 font-semibold bg-yellow-400 text-gray-700 mx-auto w-fit p-2 rounded-md">
+        Welcome to our Home Page
       </h1>
       <Navigation></Navigation>
       <div className="flex justify-center text-center py-3"></div>
@@ -20,7 +20,7 @@ export default Home;
 export const HomePageContent = () => {
   return (
     <div>
-      <h1>Anees' Enterprises</h1>
+      <h1 className="text-2xl my-4">Anees' Trading Co.</h1>
       <p>
         Curabitur ex magna, congue id scelerisque a, suscipit eget urna. Cras ac
         nulla eros. Cras quam risus, consequat suscipit neque nec, finibus
@@ -51,6 +51,7 @@ export const HomePageContent = () => {
         euismod mattis justo. Maecenas ut mattis nisl. Mauris tincidunt nunc id
         hendrerit pharetra.
       </p>
+      <footer className="text-center mt-32">&#169; Anees' Trading Co.</footer>
     </div>
   );
 };

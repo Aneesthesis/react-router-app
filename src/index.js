@@ -7,6 +7,8 @@ import Bills from "./components/bills";
 import Login from "./components/login";
 import Home, { HomePageContent } from "./components/home";
 import { AuthProvider } from "./hooks/auth";
+import { RequireAuth } from "./hooks/helper";
+import Settings from "./components/settings";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,7 +19,14 @@ root.render(
           <Route path="/" element={<Home />}>
             <Route index element={<HomePageContent />}></Route>
             <Route path="/login" element={<Login />}></Route>
-            <Route path="/invoices" element={<Invoice />}>
+            <Route
+              path="/invoices"
+              element={
+                <RequireAuth>
+                  <Invoice />
+                </RequireAuth>
+              }
+            >
               <Route
                 index
                 element={
@@ -28,6 +37,7 @@ root.render(
               ></Route>
               <Route path="/invoices/:invoiceId" element={<Bills />}></Route>
             </Route>
+            <Route path="/settings" element={<Settings />}></Route>
           </Route>
           <Route
             path="*"
